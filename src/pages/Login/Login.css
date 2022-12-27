@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the form horizontally */
+  height: 98vh;
+  background-image: url("assets/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+form {
+  width: 400px;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 2px solid #24242480;
+  background-color: #00000080;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 20px;
+  backdrop-filter: blur(24px);
+}
+
+form label {
+  color: #ffffff;
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+form input {
+  width: 95%;
+  padding: 10px;
+  border: 0;
+  background-color: #4d4d4d2f;
+  color: #fff;
+  backdrop-filter: blur(24px);
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 15px; /* Add a gap between the input boxes */
+}
+
+form input:focus {
+  outline: none;
+  border-color: #0077c9;
+}
+
+form button {
+  width: 100%;
+  background-color: #3030302f;
+  backdrop-filter: blur(24px);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #3a3a3a31;
+}
+
+footer {
+  position: fixed; /* Position the footer at a fixed position */
+  bottom: 0; /* Place the footer at the bottom of the viewport */
+  left: 0; /* Place the footer at the left edge of the viewport */
+  color: #ffffff;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #ff8b3e;
+}
