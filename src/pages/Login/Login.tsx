@@ -1,4 +1,5 @@
-import * as React from "react";
+import React from "react";
+import Modal from 'react-modal';
 import axios, { AxiosResponse } from "axios";
 import "./Login.css"
 
@@ -28,6 +29,7 @@ function Login() {
   const [login, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [code, setCode] = React.useState("");
+  const [showModal, setShowModal] = React.useState(false);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -37,15 +39,24 @@ function Login() {
         {
           login,
           password,
-          code,
         }
       );
-      const token = response.data.token;
-      localStorage.setItem('user_token', token);
-      // Your success code here
+      if (response.data.mfa) {
+        // Display the 2FA code input field
+        setShowModal(true);
+      } else {
+        const token = response.data.token;
+        localStorage.setItem('user_token', token);
+        // Your success code here
+      }
     } catch (error) {
       console.error(`You've encountered an error: ${error}`)
     }
+  };
+
+  const handleCloseModal = () => {
+    // Close the 2FA code modal
+    setShowModal(false);
   };
 
   return (
@@ -69,7 +80,9 @@ function Login() {
         onChange={(event) => setPassword(event.target.value)}
       />
       <br />
-      <label htmlFor="code">2FA Code:</label>
+      <button type="submit">Login</button>
+    </form>
+    <Modal isOpen={showModal} onRequestClose={handleCloseModal}>
       <input
         type="text"
         id="code"
@@ -77,11 +90,9 @@ function Login() {
         value={code}
         onChange={(event) => setCode(event.target.value)}
       />
-      <br />
-      <button type="submit">Login</button>
-    </form>
+    </Modal>
     <footer>
-      <p className="">Image by <a href="https://unsplash.com/@randomlies">Ashim D'Silva</a> on <a href="https://unsplash.com">Unsplash</a></p>
+      <p>Image by <a href="https://unsplash.com/@randomlies">Ashim D'Silva</a> on <a href="https://unsplash.com">Unsplash</a></p>
     </footer>
     </>
   );
