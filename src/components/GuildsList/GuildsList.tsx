@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./GuildsList.css"
 
 interface Guild {
   id: string;
@@ -6,7 +7,7 @@ interface Guild {
   icon: string | null;
 }
 
-const GuildsList = () => {
+function GuildsList() {
   const [guilds, setGuilds] = useState<Guild[]>([]);
 
   useEffect(() => {
@@ -45,11 +46,13 @@ const GuildsList = () => {
   }, []);
 
   return (
-    <ul>
+    <div className="guild-list">
       {guilds.map((guild) => (
-        <li key={guild.id}>{guild.name}</li>
+        <div className="guild" key={guild.id}>
+          {guild.icon ? <img src={`https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.webp`} className="guild-icon" alt={guild.name} /> : guild.name}
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };
 

@@ -1,0 +1,23 @@
+.guild-list {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(0, 0, 0);
+}
+
+.guild {
+  display: flex;
+  align-items: center;
+  margin: 6px;
+}
+
+.guild-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.guild-name {
+  margin-left: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
