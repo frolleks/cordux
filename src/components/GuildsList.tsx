@@ -36,13 +36,6 @@ const GuildsList = () => {
       client.onmessage = (event: MessageEvent) => {
         const message = JSON.parse(event.data);
         if (message.t === "READY") {
-          // Received the READY event
-          // const guilds = message.d.guilds;
-          // if (guilds) {
-          //   console.log(`Received ${guilds.length} guilds`);
-          // } else {
-          //   console.log('No guilds found');
-          // }
           const guilds = message.d.guilds ?? [];
           console.log(`Received ${guilds.length} guilds`);
           setGuilds(guilds);
