@@ -1,9 +1,7 @@
 import React, { Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 
-const GuildsList = React.lazy(() => import("../../components/GuildsList"));
-const Messages = React.lazy(() => import("../../components/Messages"));
-const Members = React.lazy(() => import("../../components/Members"));
+const GuildsList = React.lazy(() => import("../../components/GuildsList/GuildsList"));
 const Loader = React.lazy(() => import("../../components/Loader/Loader"));
 
 function App() {
