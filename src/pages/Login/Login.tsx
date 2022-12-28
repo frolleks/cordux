@@ -3,8 +3,8 @@ import Modal from "react-modal";
 import { useNavigate } from 'react-router-dom';
 import axios, { AxiosResponse } from "axios";
 import HCaptcha from '@hcaptcha/react-hcaptcha';
+import env from "react-dotenv";
 import "./Login.css";
-import config from "../../../config.json"
 
 interface LoginSchema {
   login: string;
@@ -134,7 +134,7 @@ function Login() {
           {captchaKey ? (
             <input type="hidden" name="captcha_key" value={captchaKey} />
           ) : (
-            <HCaptcha sitekey={config.hCaptchaSiteKey} onVerify={handleCaptcha} />
+            <HCaptcha sitekey={env.HCAPTCHA_KEY} onVerify={handleCaptcha} />
           )}
           <button type="submit">Log In</button>
         </form>
