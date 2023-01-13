@@ -10,6 +10,7 @@ import {
 import axios, { AxiosResponse } from "axios";
 import React, { useState } from "react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
+import { atom, useAtom } from "jotai";
 
 interface LoginSchema {
   login: string;
@@ -35,13 +36,20 @@ type APILoginResponse = {
 
 const API_URI = "https://discord.com/api/v9";
 
+const openModalAtom = atom(false);
+const emailAtom = atom("");
+const passwordAtom = atom("");
+const captchaKeyAtom = atom("");
+const codeAtom = atom("");
+const ticketAtom = atom("");
+
 function Login() {
-  const [opened, setOpened] = useState(false);
-  const [ticket, setTicket] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [code, setCode] = useState("");
-  const [captchaKey, setCaptchaKey] = useState("");
+  const [opened, setOpened] = useAtom(openModalAtom);
+  const [ticket, setTicket] = useAtom(ticketAtom);
+  const [email, setEmail] = useAtom(emailAtom);
+  const [password, setPassword] = useAtom(passwordAtom);
+  const [code, setCode] = useAtom(codeAtom);
+  const [captchaKey, setCaptchaKey] = useAtom(captchaKeyAtom);
 
   const handleCaptcha = (token: string) => {
     setCaptchaKey(token);
@@ -135,7 +143,6 @@ function Login() {
             mt="md"
             label="Email"
             placeholder="email@example.com"
-            {...form.getInputProps("email")}
             onChange={(event) => setEmail(event.target.value)}
           />
           <PasswordInput
