@@ -8,7 +8,7 @@ import {
   Box,
 } from "@mantine/core";
 import axios, { AxiosResponse } from "axios";
-import React, { useState } from "react";
+import React from "react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { atom, useAtom } from "jotai";
 
