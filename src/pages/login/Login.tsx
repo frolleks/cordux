@@ -130,35 +130,28 @@ function Login() {
       </Modal>
       <form onSubmit={handleSubmit}>
         <div style={{ maxWidth: 320, margin: "auto" }}>
-          <Box
-            sx={{
-              backgroundColor: "#292a2f",
-              padding: "32px"
-            }}
-          >
-            <TextInput
-              withAsterisk
-              mt="md"
-              label="Email"
-              placeholder="email@example.com"
-              {...form.getInputProps("email")}
-              onChange={(event) => setEmail(event.target.value)}
-            />
-            <PasswordInput
-              placeholder="Password"
-              label="Password"
-              withAsterisk
-              onChange={(event) => setPassword(event.target.value)}
-            />
-            <Space h="md" />
-            <HCaptcha
-              sitekey="f5561ba9-8f1e-40ca-9b5b-a0b3f719ef34"
-              onVerify={handleCaptcha}
-            />
-            <Button variant="outline" type="submit" mt="xs">
-              Log in
-            </Button>
-          </Box>
+          <TextInput
+            withAsterisk
+            mt="md"
+            label="Email"
+            placeholder="email@example.com"
+            {...form.getInputProps("email")}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+          <PasswordInput
+            placeholder="Password"
+            label="Password"
+            withAsterisk
+            onChange={(event) => setPassword(event.target.value)}
+          />
+          <Space h="md" />
+          <HCaptcha
+            sitekey="f5561ba9-8f1e-40ca-9b5b-a0b3f719ef34"
+            onVerify={handleCaptcha}
+          />
+          <Button variant="outline" type="submit" mt="xs">
+            Log in
+          </Button>
         </div>
       </form>
     </>
