@@ -21,7 +21,7 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <MantineProvider withGlobalStyles withNormalizeCSS>
+    <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme: "dark" }}>
       <RouterProvider router={router} />
     </MantineProvider>
   );
