@@ -17,6 +17,7 @@
     "@mantine/hooks": "^5.10.0",
     "@mantine/modals": "^5.10.0",
     "axios": "^1.2.2",
+    "discord-api-types": "^0.37.28",
     "jotai": "^1.13.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
