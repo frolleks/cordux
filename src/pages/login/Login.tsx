@@ -5,7 +5,6 @@ import {
   Button,
   Space,
   Modal,
-  MantineProvider,
 } from "@mantine/core";
 import axios, { AxiosResponse } from "axios";
 import React from "react";
@@ -75,6 +74,7 @@ function Login() {
         const token = response.data.token;
         // @ts-ignore
         localStorage.setItem("token", token);
+        navigate("/app");
       } else {
         // Log in with the email and password
         const loginPayload: LoginSchema = {
@@ -96,7 +96,7 @@ function Login() {
           const token = response.data.token;
           // @ts-ignore
           localStorage.setItem("token", token);
-          navigate("/");
+          navigate("/app");
         }
       }
     } catch (error) {
