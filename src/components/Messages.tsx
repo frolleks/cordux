@@ -1,8 +1,11 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { atom, useAtom } from "jotai";
+import { useEffect } from "react";
+
+const messageAtom = atom<any[]>([]);
 
 function Messages() {
-  const [message, setMessage] = useState<any[]>([]);
+  const [message, setMessage] = useAtom(messageAtom);
   const API_URI = "https://discord.com/api/v9";
   const token = localStorage.getItem("token");
   useEffect(() => {
