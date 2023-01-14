@@ -5,12 +5,13 @@ import {
   Button,
   Space,
   Modal,
-  Box,
+  MantineProvider,
 } from "@mantine/core";
 import axios, { AxiosResponse } from "axios";
 import React from "react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { atom, useAtom } from "jotai";
+import { useNavigate } from "react-router-dom";
 
 interface LoginSchema {
   login: string;
@@ -55,6 +56,8 @@ function Login() {
     setCaptchaKey(token);
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
@@ -92,7 +95,8 @@ function Login() {
           // Save the token and log in
           const token = response.data.token;
           // @ts-ignore
-          localStorage.setItem("discord_token", token);
+          localStorage.setItem("token", token);
+          navigate("/");
         }
       }
     } catch (error) {
@@ -155,6 +159,7 @@ function Login() {
           <HCaptcha
             sitekey="f5561ba9-8f1e-40ca-9b5b-a0b3f719ef34"
             onVerify={handleCaptcha}
+            theme="dark"
           />
           <Button variant="outline" type="submit" mt="xs">
             Log in
